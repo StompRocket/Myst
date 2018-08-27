@@ -1,29 +1,37 @@
-# Myst
-
-> [myst.stomprocket.io](https://brainstormincstudio.com)
+# Myst (WIP)
 
 ![Myst home screen](./screenshot.PNG)
 
-Myst is a beautiful, lightweight, open source weather app PWA developed by [Ronan Furuta](https://brainstormincstudio.com) @ [Stomp Rocket](https://stomprocket.io).
+[Myst](https://myst.stomprocket.io) is a beautiful, lightweight, open source weather app PWA developed by [Ronan Furuta](https://brainstormincstudio.com) @ [Stomp Rocket](https://stomprocket.io).
 
-## Notes
+> Currently Myst only supports mobile phones. Support for desktop and tablets in the future is planned.
 
-Currently Myst only supports mobile phones. Support for desktop and tablets in the future is planned.
+## Features
 
-## Project setup
+- Current weather and description (sunny)
+- Weekly weather information
+  -- high and low
+  -- description
 
-```
+## Roadmap
+
+- Desktop and tablet support
+- Cleaner offline/no location warnings
+- Upcomming rain information
+- Sunset and sunrise time
+- Animations
+- Geolocation API fallback
+- Morning notifications about days weather
+- Settings screen with theme options
+- Faster startup (maybe native app)
+- Start screen images
+
+## Development
+
+```bash
 npm install
-```
 
-### Compiles and hot-reloads for development
+npm run serve #dev server
 
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-
-```
-npm run build
+npm run build #build for production
 ```
