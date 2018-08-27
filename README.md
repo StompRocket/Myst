@@ -2,7 +2,7 @@
 
 > [myst.stomprocket.io](https://brainstormincstudio.com)
 
-![Myst](./screenshot.PNG)
+![Myst home screen](./screenshot.png)
 
 Myst is a beautiful, lightweight, open source weather app developed by [Ronan Furuta](https://brainstormincstudio.com) @ [Stomp Rocket](https://stomprocket.io).
 
