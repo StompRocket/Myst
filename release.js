@@ -3,7 +3,9 @@ const clear = require('clear')
 const figlet = require('figlet')
 const inquirer = require('inquirer')
 const currentVersion = require('./package.json').version
-var fs = require('fs');
+const request = require('request');
+const fs = require('fs');
+const opn = require('opn')
 var fileName = './package.json';
 var package = require(fileName);
 var shell = require('shelljs');
@@ -92,6 +94,7 @@ const run = async () => {
               shell.exit(1);
             } else {
               shell.echo('Success pushed');
+              opn('https://github.com/StompRocket/Myst/releases/new')
 
             }
           }
