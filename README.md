@@ -4,7 +4,11 @@
 
 ![Myst home screen](./screenshot.PNG)
 
-Myst is a beautiful, lightweight, open source weather app developed by [Ronan Furuta](https://brainstormincstudio.com) @ [Stomp Rocket](https://stomprocket.io).
+Myst is a beautiful, lightweight, open source weather app PWA developed by [Ronan Furuta](https://brainstormincstudio.com) @ [Stomp Rocket](https://stomprocket.io).
+
+## Notes
+
+Currently Myst only supports mobile phones. Support for desktop and tablets in the future is planned.
 
 ## Project setup
 
