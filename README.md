@@ -35,6 +35,7 @@ npm install
 npm run serve #dev server
 
 npm run build #build for production
+
 npm run release #builds and deploys to firebase
 ```
 
