@@ -1,0 +1,59 @@
+@import url('utilities.scss');
+html,
+body,
+.page {
+  font-family: roboto_slab--light, sans-serif;
+  color: #222F3E;
+  margin: none;
+  height: 100%;
+}
+
+#app {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 10vh auto 5vh;
+  height: 100%;
+}
+
+#app__nav {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding: 4%;
+  img {
+    height: 100%;
+    width: auto;
+    margin: none;
+  }
+  h1 {
+    margin: none;
+    margin-left: 2%;
+    font-size: 1.5em;
+  }
+}
+
+#app__footer {
+  .version {
+    font-size: 0.7em;
+  }
+  padding: 2%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .switch {
+    color: #1DD1A1;
+    font-family: roboto_slab, sans-serif;
+    text-decoration: none;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  .powerd-by {
+    width: 30%;
+  }
+}
+
+a:hover {
+  cursor: pointer;
+}
