@@ -1,1 +1,4 @@
 *.vue linguist-language=Vue
+/src/assets/*.scss linguist-vendored
+/src/assets/*.css linguist-vendored
+/src/assets/utilities/ linguist-vendored
