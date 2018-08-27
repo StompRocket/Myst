@@ -8,6 +8,7 @@
     <div v-if="!loading" class="futureContainer">
       <v-touch  class="future">
           <h1 class="future__type">Weekly</h1>
+          <p class="forecastLoading" v-if="!forecast">Loading...</p>
           <div v-if="forecast" class="future__forecast">
             <div v-for="item in forecast.daily.data" :key="item.dateTime._i" class="day">
               <p>{{day(item.dateTime)}}</p>
@@ -15,9 +16,7 @@
               <p>{{Math.round(item.apparentTemperatureLow)}}&#176;</p>
               <p>{{Math.round(item.apparentTemperatureHigh)}}&#176;<p/>
             </div>
-            
           </div>
-        
         </v-touch>
     </div>
   </div>
@@ -44,11 +43,14 @@ export default {
           this.current = result
           this.loading = false
           this.current.temperature = Math.round(this.current.temperature)
+      }).catch((e)=> {
+        console.log(e)
+        this.checkLoc = true
       })
       DarkSkyApi.loadForecast()
       .then(result => this.forecast = result);
     } else {
-      window.alert('Uh Oh, It looks like you dont have location enabled')
+      this.$parent.checkLoc = true
     }
     //this.axios.get(`https://api.darksky.net/forecast/babc1caef4868b2b54563b4140f75c64/${response.data.latitude},${response.data.longitude}`)
    
@@ -64,7 +66,9 @@ export default {
       loading: true,
       futureTypeName: 'Weekly',
       futureType: 2,
-      forecast: null
+      forecast: null,
+      checkLoc: false,
+      checkInternet: false
     }
   },
   methods: {

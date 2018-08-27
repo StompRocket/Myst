@@ -16,12 +16,12 @@
 ## Roadmap
 
 - Desktop and tablet support
-- Cleaner offline/no location warnings
+- ~~Cleaner offline/no location warnings~~
 - Upcomming rain information
 - Sunset and sunrise time
 - Animations
 - Geolocation API fallback
-- Morning notifications about days weather
+- Morning notifications about the days weather
 - Settings screen with theme options
 - Faster startup (maybe native app)
 - Start screen images
