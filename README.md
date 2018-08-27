@@ -36,3 +36,7 @@ npm run serve #dev server
 
 npm run build #build for production
 ```
+
+## License
+
+Apache License 2.0
