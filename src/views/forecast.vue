@@ -4,6 +4,7 @@
     <div v-if="!loading" class="current">
       <p class="current__temp">{{data.currently.temperature}}&#176;</p>
       <p class="current__feels"> <i class="wi" :class="iconClass(data.currently.icon)"></i> {{data.currently.summary}}</p>
+      <p class="current__summary">{{data.hourly.summary}}</p>
     </div>
     <div v-if="!loading" class="futureContainer">
       <div  class="future">
