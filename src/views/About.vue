@@ -2,7 +2,8 @@
 <div class="about page">
   <img src="@/assets/wordmark.svg" alt="Myst">
   <p>Myst is a beautiful, lightweight, open source weather app developed by <a href="https://brainstormincstudio.com">Ronan Furuta</a> @ <a href="https://stomprocket.io">Stomp Rocket</a>.</p>
-
+  <br>
+  <a href="https://github.com/StompRocket/Myst">View Myst on Github</a>
 </div>
 </template>
 

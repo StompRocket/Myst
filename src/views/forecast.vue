@@ -2,22 +2,22 @@
   <div id="forecast" class="page">
     <loading class="loader" v-if="loading"></loading>
     <div v-if="!loading" class="current">
-      <p class="current__temp">{{current.temperature}}&#176;</p>
-      <p class="current__feels"> <i class="wi" :class="iconClass(current.icon)"></i> {{current.summary}}</p>
+      <p class="current__temp">{{data.currently.temperature}}&#176;</p>
+      <p class="current__feels"> <i class="wi" :class="iconClass(data.currently.icon)"></i> {{data.currently.summary}}</p>
     </div>
     <div v-if="!loading" class="futureContainer">
-      <v-touch  class="future">
+      <div  class="future">
           <h1 class="future__type">Weekly</h1>
-          <p class="forecastLoading" v-if="!forecast">Loading...</p>
-          <div v-if="forecast" class="future__forecast">
-            <div v-for="item in forecast.daily.data" :key="item.dateTime._i" class="day">
+          <p class="forecastLoading" v-if="!data">Loading...</p>
+          <div v-if="data" class="future__forecast">
+            <div v-for="item in data.daily.data" :key="item.dateTime._i" class="day">
               <p>{{day(item.dateTime)}}</p>
               <i class="wi" :class="iconClass(item.icon)"></i>
               <p>{{Math.round(item.apparentTemperatureLow)}}&#176;</p>
               <p>{{Math.round(item.apparentTemperatureHigh)}}&#176;<p/>
             </div>
           </div>
-        </v-touch>
+        </div>
     </div>
   </div>
 </template>
@@ -38,17 +38,12 @@ export default {
    // console.log('mounted')
     let position
     if (navigator.geolocation) {
-      DarkSkyApi.loadCurrent()
-      .then((result) => {
-          this.current = result
-          this.loading = false
-          this.current.temperature = Math.round(this.current.temperature)
-      }).catch((e)=> {
-        console.log(e)
-        this.checkLoc = true
-      })
-      DarkSkyApi.loadForecast()
-      .then(result => this.forecast = result);
+      DarkSkyApi.loadItAll()
+      .then(result => {
+        this.data = result;
+        this.loading = false
+        this.data.currently.temperature = Math.round(this.data.currently.temperature)
+        });
     } else {
       this.$parent.checkLoc = true
     }
@@ -62,13 +57,10 @@ export default {
   },
   data() {
     return {
-      current: null,
       loading: true,
-      futureTypeName: 'Weekly',
-      futureType: 2,
-      forecast: null,
       checkLoc: false,
-      checkInternet: false
+      checkInternet: false,
+      data: null
     }
   },
   methods: {
@@ -88,19 +80,8 @@ iconClass(i) {
    },
      day(time) {
       return moment(time).format('ddd')
-    },
-    onSwipe() {
-      console.log('left')
-      if (this.futureType == 1) {
-        this.futureType = 2
-        this.futureTypeName = "Weekly"
-      } else {
-         this.futureType = 1
-         this.futureTypeName = "Hourly"
-      }
-      
-    },
-     
+    }
+   
   }
 }
 </script>
