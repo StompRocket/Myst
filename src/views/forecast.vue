@@ -2,8 +2,8 @@
   <div id="forecast" class="page">
     <loading class="loader" v-if="loading"></loading>
     <div v-if="!loading" class="current">
-        <p class="current__temp">{{current.temperature}}&#176;</p>
-        <p class="current__feels">{{current.summary}}</p>
+      <p class="current__temp">{{current.temperature}}&#176;</p>
+      <p class="current__feels"> <i class="wi" :class="iconClass(current.icon)"></i> {{current.summary}}</p>
     </div>
     <div v-if="!loading" class="futureContainer">
       <v-touch  class="future">
@@ -35,7 +35,7 @@ export default {
     loading
   },
   mounted() {
-    console.log('mounted')
+   // console.log('mounted')
     let position
     if (navigator.geolocation) {
       DarkSkyApi.loadCurrent()
