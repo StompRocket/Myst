@@ -8,10 +8,12 @@
 
 ## Features
 
-- Current weather and description (sunny)
+- Current weather, description (sunny), and summary (Mostly cloudy starting later this evening)
 - Weekly weather information
-  -- high and low
-  -- description
+  ** high and low
+  ** description
+  \*\* summary
+- Next 14 hours weather info
 
 ## Roadmap
 
