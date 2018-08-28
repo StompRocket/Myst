@@ -4,11 +4,25 @@
     <div v-if="!loading" class="current">
       <p class="current__temp">{{data.currently.temperature}}&#176;</p>
       <p class="current__feels"> <i class="wi" :class="iconClass(data.currently.icon)"></i> {{data.currently.summary}}</p>
-      <p class="current__summary">{{data.hourly.summary}}</p>
+      <p class="current__summary">{{data.minutely.summary}}</p>
     </div>
     <div v-if="!loading" class="futureContainer">
+       <div  class="future">
+           <h1 class="future__type">Next 14 hours</h1>
+          <p class="future__summary">{{data.hourly.summary}}</p>
+          <p class="forecastLoading" v-if="!data">Loading...</p>
+          <div v-if="data" class="future__forecast">
+            <div v-for="item in data.hourly.data" :key="item.dateTime" class="day">
+              <p>{{hour(item.time)}}</p>
+              <i class="wi" :class="iconClass(item.icon)"></i>
+              <p>{{Math.round(item.apparentTemperature)}}&#176;</p>
+         
+            </div>
+          </div>
+        </div>
       <div  class="future">
-          <h1 class="future__type">Weekly</h1>
+        <h1 class="future__type">Next Week</h1>
+          <p class="future__summary">{{data.daily.summary}}</p>
           <p class="forecastLoading" v-if="!data">Loading...</p>
           <div v-if="data" class="future__forecast">
             <div v-for="item in data.daily.data" :key="item.dateTime._i" class="day">
@@ -29,7 +43,7 @@ import loading from '@/components/loading.vue'
 import '@/assets/forecast.scss'
 import moment from 'moment'
 DarkSkyApi.apiKey = 'babc1caef4868b2b54563b4140f75c64';
-DarkSkyApi.extendHourly(true);
+DarkSkyApi.extendHourly(false);
 export default {
   name: 'forecast',
   components: {
@@ -44,6 +58,7 @@ export default {
         this.data = result;
         this.loading = false
         this.data.currently.temperature = Math.round(this.data.currently.temperature)
+        this.data.hourly.data = this.data.hourly.data.slice(0, 14);
         });
     } else {
       this.$parent.checkLoc = true
@@ -81,6 +96,9 @@ iconClass(i) {
    },
      day(time) {
       return moment(time).format('ddd')
+    },
+    hour(hr) {
+      return moment.unix(hr).format('ha')
     }
    
   }

@@ -2,7 +2,7 @@
   display: grid;
   height: 100%;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 2fr;
+  grid-template-rows: auto auto;
 }
 
 .current {
@@ -10,6 +10,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 4%;
+  margin-top: 4%;
 }
 
 .current__temp {
@@ -33,23 +35,26 @@
 
 .current__summary {
   margin-top: 4%;
-  font-size: 0.9em;
+  font-size: 1em;
 }
 
 .futureContainer {
+  margin-top: 0;
   padding: 4%;
+  min-height: 60vh;
+  margin-bottom: 2%;
 }
 
 .future {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   border-radius: 15px;
-  height: 100%;
   padding: 7%;
   padding-bottom: 1%;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1.3em auto;
-  overflow: hidden;
+  margin: 2% 0;
+}
+
+.future__summary {
+  font-size: 0.7em;
 }
 
 .future__type {
@@ -61,7 +66,7 @@
 .future__forecast {
   overflow-y: scroll;
   overflow-x: hidden;
-  padding: 5% 4%;
+  padding: 5% 0%;
   .day {
     margin: 2% 0;
     display: grid;
