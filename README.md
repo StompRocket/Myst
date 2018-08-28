@@ -25,7 +25,7 @@
 - Settings screen with theme options
 - Faster startup (maybe native app)
 - Start screen images
-- Hourly forcast
+- ~~Hourly forcast~~
 
 ## Development
 
